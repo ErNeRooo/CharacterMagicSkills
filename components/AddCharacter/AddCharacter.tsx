@@ -11,8 +11,10 @@ export const AddCharacter = () => {
 const styles = StyleSheet.create({
   panel: {
     marginTop: 30,
+    width: 10,
+    height: 20,
     flex: 2,
-    backgroundColor: "red",
+    backgroundColor: "blue",
     alignItems: "center",
     justifyContent: "flex-start",
   },

@@ -18,5 +18,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#272D2D",
     alignItems: "center",
     justifyContent: "flex-start",
+    flexDirection: "row",
   },
 });
