@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export const AddCharacter = () => {
+export const AddCharacterBar = () => {
   return (
     <View style={styles.panel}>
       <Text>Add Character</Text>

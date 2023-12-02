@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { AddCharacter } from "./components/AddCharacter/AddCharacter";
+import { AddCharacterBar } from "./components/AddCharacterBar/AddCharacterBar";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <AddCharacter></AddCharacter>
+      <AddCharacterBar></AddCharacterBar>
       <StatusBar style="auto" />
     </View>
   );
