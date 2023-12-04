@@ -1,14 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { AddCharacterBar } from "./components/AddCharacterBar/AddCharacterBar";
+import { ThemeManagerBar } from "./components/ThemeManagerBar/ThemeManagerBar";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <AddCharacterBar></AddCharacterBar>
-      <AddCharacterBar></AddCharacterBar>
-      <AddCharacterBar></AddCharacterBar>
-      <AddCharacterBar></AddCharacterBar>
+      <ThemeManagerBar></ThemeManagerBar>
       <AddCharacterBar></AddCharacterBar>
       <StatusBar style="auto" />
     </View>

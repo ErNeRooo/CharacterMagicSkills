@@ -4,10 +4,10 @@ import { Dimensions } from "react-native";
 const width = Dimensions.get("window").width - 40;
 const height = Dimensions.get("window").height * 0.1;
 
-export const AddCharacterBar = () => {
+export const ThemeManagerBar = () => {
   return (
     <View style={styles.bar}>
-      <Text style={styles.header}>Add Character</Text>
+      <Text style={styles.header}>Theme</Text>
     </View>
   );
 };
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
 
     borderRadius: 20,
-    backgroundColor: "#14213D",
+    backgroundColor: "#FCA311",
 
     alignItems: "center",
     justifyContent: "space-around",
