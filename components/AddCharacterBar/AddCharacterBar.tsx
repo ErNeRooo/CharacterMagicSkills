@@ -1,22 +1,30 @@
 import { StyleSheet, Text, View } from "react-native";
+import { Dimensions } from "react-native";
+
+const width = Dimensions.get("window").width - 40;
+const height = Dimensions.get("window").height * 0.1;
 
 export const AddCharacterBar = () => {
   return (
-    <View style={styles.panel}>
-      <Text>Add Character</Text>
+    <View style={styles.bar}>
+      <Text style={styles.header}>Add Character</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  panel: {
-    marginTop: 30,
-    width: 10,
-    height: 20,
-    flex: 2,
+  bar: {
+    width: width,
+    height: height,
+
+    marginBottom: 20,
+
+    borderRadius: 20,
     backgroundColor: "blue",
+
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "space-around",
+    flexDirection: "column",
   },
-  header: { fontSize: 20, color: "cyan" },
+  header: { fontSize: 20, color: "white" },
 });

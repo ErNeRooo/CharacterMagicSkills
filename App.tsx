@@ -6,6 +6,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <AddCharacterBar></AddCharacterBar>
+      <AddCharacterBar></AddCharacterBar>
+      <AddCharacterBar></AddCharacterBar>
+      <AddCharacterBar></AddCharacterBar>
+      <AddCharacterBar></AddCharacterBar>
       <StatusBar style="auto" />
     </View>
   );
@@ -14,10 +18,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     marginTop: 30,
+    marginHorizontal: 20,
     flex: 1,
-    backgroundColor: "#272D2D",
-    alignItems: "center",
+    flexWrap: "wrap",
+    //backgroundColor: "#272D2D",
+    alignItems: "flex-start",
     justifyContent: "flex-start",
-    flexDirection: "row",
+    flexDirection: "column",
   },
 });
