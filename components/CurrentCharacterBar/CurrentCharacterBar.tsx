@@ -2,12 +2,12 @@ import { StyleSheet, Text, View } from "react-native";
 import { Dimensions } from "react-native";
 
 const width = Dimensions.get("window").width - 40;
-const height = Dimensions.get("window").height * 0.1;
+const height = Dimensions.get("window").height * 0.2;
 
-export const ThemeManagerBar = () => {
+export const CurrentCharacterBar = () => {
   return (
     <View style={styles.bar}>
-      <Text style={styles.header}>Theme</Text>
+      <Text style={styles.header}>Current Character</Text>
     </View>
   );
 };
