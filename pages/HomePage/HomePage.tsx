@@ -1,15 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { AddCharacterBar } from "../../components/AddCharacterBar/AddCharacterBar";
+import { CharacterBar } from "../../components/CharacterBar/CharacterBar";
 import { ThemeManagerBar } from "../../components/ThemeManagerBar/ThemeManagerBar";
-import { CurrentCharacterBar } from "../../components/CurrentCharacterBar/CurrentCharacterBar";
+import { CharacterStatsBar } from "../../components/CharacterStatsBar/CharacterStatsBar";
 
 export function HomePage() {
   return (
     <View style={styles.container}>
       <ThemeManagerBar></ThemeManagerBar>
-      <AddCharacterBar></AddCharacterBar>
-      <CurrentCharacterBar></CurrentCharacterBar>
+      <CharacterBar></CharacterBar>
+      <CharacterStatsBar></CharacterStatsBar>
       <StatusBar style="auto" />
     </View>
   );

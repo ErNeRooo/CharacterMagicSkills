@@ -4,7 +4,7 @@ import { Dimensions } from "react-native";
 const width = Dimensions.get("window").width - 40;
 const height = Dimensions.get("window").height * 0.1;
 
-export const AddCharacterBar = () => {
+export const CharacterBar = () => {
   return (
     <View style={styles.bar}>
       <Text style={styles.header}>Add Character</Text>
