@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { AddCharacterBar } from "../AddCharacterBar/AddCharacterBar";
-import { ThemeManagerBar } from "../ThemeManagerBar/ThemeManagerBar";
-import { CurrentCharacterBar } from "../CurrentCharacterBar/CurrentCharacterBar";
+import { AddCharacterBar } from "../../components/AddCharacterBar/AddCharacterBar";
+import { ThemeManagerBar } from "../../components/ThemeManagerBar/ThemeManagerBar";
+import { CurrentCharacterBar } from "../../components/CurrentCharacterBar/CurrentCharacterBar";
 
 export function HomePage() {
   return (
