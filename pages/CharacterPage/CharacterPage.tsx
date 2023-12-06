@@ -1,9 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TextInput, Switch } from "react-native";
+import { useState } from "react";
 
 export const CharacterPage = () => {
+  const [isAttack, setIsAttack] = useState(false);
+  const [isHealing, setIsHealing] = useState(false);
+  const [isSummon, setIsSummon] = useState(false);
+  const [isInherited, setIsInherited] = useState(false);
+
   return (
     <View style={styles.container}>
-      <Text>CharacterPage</Text>
+      <View>
+        <Text>Your Character Name:</Text>
+        <TextInput placeholder="Name"></TextInput>
+      </View>
+
+      <Switch
+        onValueChange={() => setIsAttack((prev) => !prev)}
+        value={isAttack}
+      />
     </View>
   );
 };

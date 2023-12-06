@@ -1,14 +1,17 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { CharacterBar } from "../../components/CharacterBar/CharacterBar";
 import { ThemeManagerBar } from "../../components/ThemeManagerBar/ThemeManagerBar";
 import { CharacterStatsBar } from "../../components/CharacterStatsBar/CharacterStatsBar";
+import { useState } from "react";
 
-export function HomePage() {
+export function HomePage({ navigation }: Props) {
+  const [Character, setCharacter] = useState({});
+
   return (
     <View style={styles.container}>
       <ThemeManagerBar></ThemeManagerBar>
-      <CharacterBar></CharacterBar>
+      <CharacterBar navigation={navigation}></CharacterBar>
       <CharacterStatsBar></CharacterStatsBar>
       <StatusBar style="auto" />
     </View>
@@ -27,3 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
 });
+
+type Props = {
+  navigation: any;
+};
