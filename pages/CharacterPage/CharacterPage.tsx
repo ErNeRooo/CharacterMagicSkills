@@ -10,14 +10,41 @@ export const CharacterPage = () => {
   return (
     <View style={styles.container}>
       <View>
-        <Text>Your Character Name:</Text>
-        <TextInput placeholder="Name"></TextInput>
+        <Text>Imię twojej postaci:</Text>
+        <TextInput placeholder="wpisz imię"></TextInput>
       </View>
 
-      <Switch
-        onValueChange={() => setIsAttack((prev) => !prev)}
-        value={isAttack}
-      />
+      <View style={styles.magic}>
+        <Text>Magia Ataku</Text>
+        <Switch
+          onValueChange={() => setIsAttack((prev) => !prev)}
+          value={isAttack}
+        />
+      </View>
+
+      <View style={styles.magic}>
+        <Text>Magia Leczenia</Text>
+        <Switch
+          onValueChange={() => setIsHealing((prev) => !prev)}
+          value={isHealing}
+        />
+      </View>
+
+      <View style={styles.magic}>
+        <Text>Magia Przywoływania</Text>
+        <Switch
+          onValueChange={() => setIsSummon((prev) => !prev)}
+          value={isSummon}
+        />
+      </View>
+
+      <View style={styles.magic}>
+        <Text>Magia Wrodzona</Text>
+        <Switch
+          onValueChange={() => setIsInherited((prev) => !prev)}
+          value={isInherited}
+        />
+      </View>
     </View>
   );
 };
@@ -32,5 +59,9 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "flex-start",
     flexDirection: "column",
+  },
+  magic: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
