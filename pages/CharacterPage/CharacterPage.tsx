@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, TextInput, Switch } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Switch,
+  ScrollView,
+} from "react-native";
 import { useState } from "react";
 import SelectDropdown from "react-native-select-dropdown";
 import { Skill } from "../../components/Skill/Skill";
@@ -10,7 +17,7 @@ export const CharacterPage = () => {
   const [isInherited, setIsInherited] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View>
         <Text>Imię twojej postaci:</Text>
         <TextInput placeholder="wpisz imię"></TextInput>
@@ -41,6 +48,16 @@ export const CharacterPage = () => {
           value={isHealing}
         />
       </View>
+      {isHealing && (
+        <View>
+          <Text>Szkoła: </Text>
+
+          <Skill>{"Leczenia"}</Skill>
+          <Skill>{"Detoksykacji"}</Skill>
+          <Skill>{"Boskiego uderzenia"}</Skill>
+          <Skill>{"Ochrony"}</Skill>
+        </View>
+      )}
 
       <View style={styles.magic}>
         <Text>Magia Przywoływania</Text>
@@ -49,6 +66,14 @@ export const CharacterPage = () => {
           value={isSummon}
         />
       </View>
+      {isSummon && (
+        <View>
+          <Text>Szkoła: </Text>
+
+          <Skill>{"Duchów"}</Skill>
+          <Skill>{"Diabłów"}</Skill>
+        </View>
+      )}
 
       <View style={styles.magic}>
         <Text>Magia Wrodzona</Text>
@@ -57,6 +82,7 @@ export const CharacterPage = () => {
           value={isInherited}
         />
       </View>
+      {isInherited && <View></View>}
 
       <View>
         <Text>Rasa</Text>
@@ -65,19 +91,18 @@ export const CharacterPage = () => {
           onSelect={(item) => item}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
     marginHorizontal: 20,
     flex: 1,
     flexWrap: "wrap",
     //backgroundColor: "#272D2D",
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
+    //alignItems: "flex-start",
+    //justifyContent: "flex-start",
     flexDirection: "column",
   },
   magic: {
