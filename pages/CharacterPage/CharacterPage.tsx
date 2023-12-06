@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Switch } from "react-native";
 import { useState } from "react";
+import SelectDropdown from "react-native-select-dropdown";
+import { Skill } from "../../components/Skill/Skill";
 
 export const CharacterPage = () => {
   const [isAttack, setIsAttack] = useState(false);
@@ -21,6 +23,16 @@ export const CharacterPage = () => {
           value={isAttack}
         />
       </View>
+      {isAttack && (
+        <View>
+          <Text>Szkoła: </Text>
+
+          <Skill>{"Wody"}</Skill>
+          <Skill>{"Ognia"}</Skill>
+          <Skill>{"Wiatru"}</Skill>
+          <Skill>{"Ziemii"}</Skill>
+        </View>
+      )}
 
       <View style={styles.magic}>
         <Text>Magia Leczenia</Text>
@@ -43,6 +55,14 @@ export const CharacterPage = () => {
         <Switch
           onValueChange={() => setIsInherited((prev) => !prev)}
           value={isInherited}
+        />
+      </View>
+
+      <View>
+        <Text>Rasa</Text>
+        <SelectDropdown
+          data={["Człowiek", "Smok", "Elf", "Krasnolud", "Bestia", "Demon"]}
+          onSelect={(item) => item}
         />
       </View>
     </View>
