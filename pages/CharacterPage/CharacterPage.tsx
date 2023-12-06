@@ -7,9 +7,9 @@ import {
   ScrollView,
 } from "react-native";
 import { useState } from "react";
-import SelectDropdown from "react-native-select-dropdown";
 import { Skill } from "../../components/Skill/Skill";
 import { RadioButtons } from "../../components/RadioButtons/RadioButtons";
+import { SkillCheckBoxes } from "../../components/SkillCheckBoxes/SkillCheckBoxes";
 
 export const CharacterPage = () => {
   const [isAttack, setIsAttack] = useState(false);
@@ -83,7 +83,11 @@ export const CharacterPage = () => {
           value={isInherited}
         />
       </View>
-      {isInherited && <View></View>}
+      {isInherited && (
+        <View>
+          <SkillCheckBoxes />
+        </View>
+      )}
 
       <View>
         <Text>Rasa</Text>
