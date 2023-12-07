@@ -13,17 +13,37 @@ import { SkillCheckBoxes } from "../../components/SkillCheckBoxes/SkillCheckBoxe
 
 export const CharacterPage = () => {
   const [character, setCharacter] = useState({
+    name: "",
     isAttack: false,
     isHeal: false,
     isSummon: false,
     isInherited: false,
+    water: 0,
+    fire: 0,
+    wind: 0,
+    earth: 0,
+    heal: 0,
+    detoxification: 0,
+    divineStrike: 0,
+    protection: 0,
+    fiends: 0,
+    spirits: 0,
   });
 
   return (
     <ScrollView style={styles.container}>
       <View>
         <Text>Imię twojej postaci:</Text>
-        <TextInput placeholder="wpisz imię"></TextInput>
+        <TextInput
+          value={character.name}
+          onChangeText={(text) =>
+            setCharacter((prev) => ({
+              ...prev,
+              name: text,
+            }))
+          }
+          placeholder="wpisz imię"
+        ></TextInput>
       </View>
 
       <View style={styles.magic}>
@@ -42,10 +62,10 @@ export const CharacterPage = () => {
         <View>
           <Text>Szkoła: </Text>
 
-          <Skill>{"Wody"}</Skill>
-          <Skill>{"Ognia"}</Skill>
-          <Skill>{"Wiatru"}</Skill>
-          <Skill>{"Ziemii"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Wody"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Ognia"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Wiatru"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Ziemii"}</Skill>
         </View>
       )}
 
@@ -65,10 +85,10 @@ export const CharacterPage = () => {
         <View>
           <Text>Szkoła: </Text>
 
-          <Skill>{"Leczenia"}</Skill>
-          <Skill>{"Detoksykacji"}</Skill>
-          <Skill>{"Boskiego uderzenia"}</Skill>
-          <Skill>{"Ochrony"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Leczenia"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Detoksykacji"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Boskiego uderzenia"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Ochrony"}</Skill>
         </View>
       )}
 
@@ -88,8 +108,8 @@ export const CharacterPage = () => {
         <View>
           <Text>Szkoła: </Text>
 
-          <Skill>{"Duchów"}</Skill>
-          <Skill>{"Diabłów"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Duchów"}</Skill>
+          <Skill setCharacterState={setCharacter}>{"Diabłów"}</Skill>
         </View>
       )}
 

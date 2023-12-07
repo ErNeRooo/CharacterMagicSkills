@@ -1,7 +1,10 @@
 import { View, Text } from "react-native";
 import SelectDropdown from "react-native-select-dropdown";
 
-export const Skill = ({ children }: Props) => {
+export const Skill = ({ children, setCharacterState }: Props) => {
+  const handler = (index: number) => {
+    return index;
+  };
   return (
     <>
       <Text>{children}</Text>
@@ -18,7 +21,9 @@ export const Skill = ({ children }: Props) => {
             "Cesarski",
             "Boski",
           ]}
-          onSelect={(item) => item}
+          onSelect={(index) => {
+            handler(index);
+          }}
           defaultValue={"Żaden"}
         />
       </View>
@@ -28,4 +33,5 @@ export const Skill = ({ children }: Props) => {
 
 type Props = {
   children: string;
+  setCharacterState: () => void;
 };
