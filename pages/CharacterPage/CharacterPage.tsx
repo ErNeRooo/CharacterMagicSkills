@@ -12,10 +12,12 @@ import { RadioButtons } from "../../components/RadioButtons/RadioButtons";
 import { SkillCheckBoxes } from "../../components/SkillCheckBoxes/SkillCheckBoxes";
 
 export const CharacterPage = () => {
-  const [isAttack, setIsAttack] = useState(false);
-  const [isHealing, setIsHealing] = useState(false);
-  const [isSummon, setIsSummon] = useState(false);
-  const [isInherited, setIsInherited] = useState(false);
+  const [character, setCharacter] = useState({
+    isAttack: false,
+    isHeal: false,
+    isSummon: false,
+    isInherited: false,
+  });
 
   return (
     <ScrollView style={styles.container}>
@@ -27,11 +29,16 @@ export const CharacterPage = () => {
       <View style={styles.magic}>
         <Text>Magia Ataku</Text>
         <Switch
-          onValueChange={() => setIsAttack((prev) => !prev)}
-          value={isAttack}
+          onValueChange={() =>
+            setCharacter((prev) => ({
+              ...prev,
+              isAttack: !character.isAttack,
+            }))
+          }
+          value={character.isAttack}
         />
       </View>
-      {isAttack && (
+      {character.isAttack && (
         <View>
           <Text>Szkoła: </Text>
 
@@ -45,11 +52,16 @@ export const CharacterPage = () => {
       <View style={styles.magic}>
         <Text>Magia Leczenia</Text>
         <Switch
-          onValueChange={() => setIsHealing((prev) => !prev)}
-          value={isHealing}
+          onValueChange={() =>
+            setCharacter((prev) => ({
+              ...prev,
+              isHeal: !character.isHeal,
+            }))
+          }
+          value={character.isHeal}
         />
       </View>
-      {isHealing && (
+      {character.isHeal && (
         <View>
           <Text>Szkoła: </Text>
 
@@ -63,11 +75,16 @@ export const CharacterPage = () => {
       <View style={styles.magic}>
         <Text>Magia Przywoływania</Text>
         <Switch
-          onValueChange={() => setIsSummon((prev) => !prev)}
-          value={isSummon}
+          onValueChange={() =>
+            setCharacter((prev) => ({
+              ...prev,
+              isSummon: !character.isSummon,
+            }))
+          }
+          value={character.isSummon}
         />
       </View>
-      {isSummon && (
+      {character.isSummon && (
         <View>
           <Text>Szkoła: </Text>
 
@@ -79,11 +96,16 @@ export const CharacterPage = () => {
       <View style={styles.magic}>
         <Text>Magia Wrodzona</Text>
         <Switch
-          onValueChange={() => setIsInherited((prev) => !prev)}
-          value={isInherited}
+          onValueChange={() =>
+            setCharacter((prev) => ({
+              ...prev,
+              isInherited: !character.isInherited,
+            }))
+          }
+          value={character.isInherited}
         />
       </View>
-      {isInherited && (
+      {character.isInherited && (
         <View>
           <SkillCheckBoxes />
         </View>
