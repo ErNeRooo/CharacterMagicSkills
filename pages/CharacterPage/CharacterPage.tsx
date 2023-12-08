@@ -137,9 +137,31 @@ export const CharacterPage = () => {
           {["Człowiek", "Smok", "Elf", "Krasnolud", "Bestia", "Demon"]}
         </RadioButtons>
       </View>
+
+      <View style={styles.magic}>
+        <Text>{character.water}</Text>
+      </View>
     </ScrollView>
   );
 };
+
+export interface ICharacter {
+  name: string;
+  isAttack: boolean;
+  isHeal: boolean;
+  isSummon: boolean;
+  isInherited: boolean;
+  water: number;
+  fire: number;
+  wind: number;
+  earth: number;
+  heal: number;
+  detoxification: number;
+  divineStrike: number;
+  protection: number;
+  fiends: number;
+  spirits: number;
+}
 
 const styles = StyleSheet.create({
   container: {
