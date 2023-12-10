@@ -14,6 +14,7 @@ import { SkillCheckBoxes } from "../../components/SkillCheckBoxes/SkillCheckBoxe
 export const CharacterPage = () => {
   const [character, setCharacter] = useState({
     name: "",
+    race: "",
     isAttack: false,
     isHeal: false,
     isSummon: false,
@@ -133,13 +134,13 @@ export const CharacterPage = () => {
 
       <View>
         <Text>Rasa</Text>
-        <RadioButtons>
+        <RadioButtons character={character} setCharacter={setCharacter}>
           {["Człowiek", "Smok", "Elf", "Krasnolud", "Bestia", "Demon"]}
         </RadioButtons>
       </View>
 
       <View style={styles.magic}>
-        <Text>{character.water}</Text>
+        <Text>{character.race}</Text>
       </View>
     </ScrollView>
   );
@@ -147,6 +148,7 @@ export const CharacterPage = () => {
 
 export interface ICharacter {
   name: string;
+  race: string;
   isAttack: boolean;
   isHeal: boolean;
   isSummon: boolean;
