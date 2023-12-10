@@ -5,6 +5,7 @@ import {
   TextInput,
   Switch,
   ScrollView,
+  Button,
 } from "react-native";
 import { useState } from "react";
 import { Skill } from "../../components/Skill/Skill";
@@ -39,6 +40,10 @@ export const CharacterPage = () => {
     isDivination: false,
     isTemporarySoulSummoning: false,
   });
+
+  const handleSubmit = () => {
+    console.log(character);
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -148,9 +153,7 @@ export const CharacterPage = () => {
         </RadioButtons>
       </View>
 
-      <View style={styles.magic}>
-        <Text>{character.race}</Text>
-      </View>
+      <Button onPress={handleSubmit} title="Submit" />
     </ScrollView>
   );
 };
