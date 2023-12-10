@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Dimensions } from "react-native";
+import { ICharacter } from "../../pages/CharacterPage/CharacterPage";
 
 const width = Dimensions.get("window").width - 40;
 const height = Dimensions.get("window").height * 0.1;

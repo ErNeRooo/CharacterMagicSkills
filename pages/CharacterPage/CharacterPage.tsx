@@ -6,13 +6,15 @@ import {
   Switch,
   ScrollView,
   Button,
+  ToastAndroid,
 } from "react-native";
 import { useState } from "react";
 import { Skill } from "../../components/Skill/Skill";
 import { RadioButtons } from "../../components/RadioButtons/RadioButtons";
 import { SkillCheckBoxes } from "../../components/SkillCheckBoxes/SkillCheckBoxes";
+import { CurrentCharacter } from "../../components/CharacterStatsBar/CharacterStatsBar";
 
-export const CharacterPage = () => {
+export const CharacterPage = ({ navigation }: Props) => {
   const [character, setCharacter] = useState({
     name: "",
     race: "",
@@ -42,7 +44,10 @@ export const CharacterPage = () => {
   });
 
   const handleSubmit = () => {
-    console.log(character);
+    ToastAndroid.show("Character Added", ToastAndroid.SHORT);
+    //CurrentCharacter = character;
+
+    navigation.navigate("HomePage");
   };
 
   return (
@@ -208,7 +213,9 @@ export interface ICharacter {
   isDivination: boolean;
   isTemporarySoulSummoning: boolean;
 }
-
+type Props = {
+  navigation: any;
+};
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,

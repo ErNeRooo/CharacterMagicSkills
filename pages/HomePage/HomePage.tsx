@@ -6,8 +6,6 @@ import { CharacterStatsBar } from "../../components/CharacterStatsBar/CharacterS
 import { useState } from "react";
 
 export function HomePage({ navigation }: Props) {
-  const [Character, setCharacter] = useState({});
-
   return (
     <View style={styles.container}>
       <ThemeManagerBar></ThemeManagerBar>

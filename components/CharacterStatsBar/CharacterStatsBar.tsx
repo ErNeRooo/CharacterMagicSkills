@@ -4,6 +4,34 @@ import { Dimensions } from "react-native";
 const width = Dimensions.get("window").width - 40;
 const height = Dimensions.get("window").height * 0.2;
 
+export const CurrentCharacter = {
+  name: "",
+  race: "",
+  isAttack: false,
+  isHeal: false,
+  isSummon: false,
+  isInherited: false,
+  water: "",
+  fire: "",
+  wind: "",
+  earth: "",
+  heal: "",
+  detoxification: "",
+  divineStrike: "",
+  protection: "",
+  fiends: "",
+  spirits: "",
+  isHowling: false,
+  isTeleport: false,
+  isGravityManipulation: false,
+  isTimeTravel: false,
+  isHypnosis: false,
+  isMagicDisruption: false,
+  isReincarnation: false,
+  isDivination: false,
+  isTemporarySoulSummoning: false,
+};
+
 export const CharacterStatsBar = () => {
   return (
     <View style={styles.bar}>
