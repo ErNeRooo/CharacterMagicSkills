@@ -29,6 +29,15 @@ export const CharacterPage = () => {
     protection: 0,
     fiends: 0,
     spirits: 0,
+    isHowling: false,
+    isTeleport: false,
+    isGravityManipulation: false,
+    isTimeTravel: false,
+    isHypnosis: false,
+    isMagicDisruption: false,
+    isReincarnation: false,
+    isDivination: false,
+    isTemporarySoulSummoning: false,
   });
 
   return (
@@ -128,7 +137,7 @@ export const CharacterPage = () => {
       </View>
       {character.isInherited && (
         <View>
-          <SkillCheckBoxes />
+          <SkillCheckBoxes character={character} setCharacter={setCharacter} />
         </View>
       )}
 
@@ -149,10 +158,12 @@ export const CharacterPage = () => {
 export interface ICharacter {
   name: string;
   race: string;
+
   isAttack: boolean;
   isHeal: boolean;
   isSummon: boolean;
   isInherited: boolean;
+
   water: number;
   fire: number;
   wind: number;
@@ -163,6 +174,16 @@ export interface ICharacter {
   protection: number;
   fiends: number;
   spirits: number;
+
+  isHowling: boolean;
+  isTeleport: boolean;
+  isGravityManipulation: boolean;
+  isTimeTravel: boolean;
+  isHypnosis: boolean;
+  isMagicDisruption: boolean;
+  isReincarnation: boolean;
+  isDivination: boolean;
+  isTemporarySoulSummoning: boolean;
 }
 
 const styles = StyleSheet.create({
