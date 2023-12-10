@@ -15,13 +15,13 @@ const translate = new Map([
   ["Diabłów", "spirits"],
 ]);
 
-export const Skill = ({ children, setCharacterState }: Props) => {
-  const skillSchool = translate.get(children);
-  const handler = (index: number) => {
+export const Skill = ({ children, character, setCharacterState }: Props) => {
+  const skillName = translate.get(children);
+  const handler = (item: string) => {
     setCharacterState((prev) => {
       return {
         ...prev,
-        [skillSchool === undefined ? "err" : skillSchool]: index,
+        [skillName === undefined ? "err" : skillName]: item,
       };
     });
   };
@@ -41,10 +41,10 @@ export const Skill = ({ children, setCharacterState }: Props) => {
             "Cesarski",
             "Boski",
           ]}
-          onSelect={(item, index) => {
-            handler(index);
+          onSelect={(item) => {
+            handler(item);
           }}
-          defaultValue={"Żaden"}
+          defaultValue={character[skillName as keyof ICharacter]}
         />
       </View>
     </>
@@ -53,5 +53,6 @@ export const Skill = ({ children, setCharacterState }: Props) => {
 
 type Props = {
   children: string;
+  character: ICharacter;
   setCharacterState: React.Dispatch<React.SetStateAction<ICharacter>>;
 };

@@ -20,16 +20,16 @@ export const CharacterPage = () => {
     isHeal: false,
     isSummon: false,
     isInherited: false,
-    water: 0,
-    fire: 0,
-    wind: 0,
-    earth: 0,
-    heal: 0,
-    detoxification: 0,
-    divineStrike: 0,
-    protection: 0,
-    fiends: 0,
-    spirits: 0,
+    water: "",
+    fire: "",
+    wind: "",
+    earth: "",
+    heal: "",
+    detoxification: "",
+    divineStrike: "",
+    protection: "",
+    fiends: "",
+    spirits: "",
     isHowling: false,
     isTeleport: false,
     isGravityManipulation: false,
@@ -77,10 +77,18 @@ export const CharacterPage = () => {
         <View>
           <Text>Szkoła: </Text>
 
-          <Skill setCharacterState={setCharacter}>{"Wody"}</Skill>
-          <Skill setCharacterState={setCharacter}>{"Ognia"}</Skill>
-          <Skill setCharacterState={setCharacter}>{"Wiatru"}</Skill>
-          <Skill setCharacterState={setCharacter}>{"Ziemii"}</Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Wody"}
+          </Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Ognia"}
+          </Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Wiatru"}
+          </Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Ziemii"}
+          </Skill>
         </View>
       )}
 
@@ -100,10 +108,18 @@ export const CharacterPage = () => {
         <View>
           <Text>Szkoła: </Text>
 
-          <Skill setCharacterState={setCharacter}>{"Leczenia"}</Skill>
-          <Skill setCharacterState={setCharacter}>{"Detoksykacji"}</Skill>
-          <Skill setCharacterState={setCharacter}>{"Boskiego uderzenia"}</Skill>
-          <Skill setCharacterState={setCharacter}>{"Ochrony"}</Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Leczenia"}
+          </Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Detoksykacji"}
+          </Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Boskiego uderzenia"}
+          </Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Ochrony"}
+          </Skill>
         </View>
       )}
 
@@ -123,8 +139,12 @@ export const CharacterPage = () => {
         <View>
           <Text>Szkoła: </Text>
 
-          <Skill setCharacterState={setCharacter}>{"Duchów"}</Skill>
-          <Skill setCharacterState={setCharacter}>{"Diabłów"}</Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Duchów"}
+          </Skill>
+          <Skill character={character} setCharacterState={setCharacter}>
+            {"Diabłów"}
+          </Skill>
         </View>
       )}
 
@@ -167,16 +187,16 @@ export interface ICharacter {
   isSummon: boolean;
   isInherited: boolean;
 
-  water: number;
-  fire: number;
-  wind: number;
-  earth: number;
-  heal: number;
-  detoxification: number;
-  divineStrike: number;
-  protection: number;
-  fiends: number;
-  spirits: number;
+  water: string;
+  fire: string;
+  wind: string;
+  earth: string;
+  heal: string;
+  detoxification: string;
+  divineStrike: string;
+  protection: string;
+  fiends: string;
+  spirits: string;
 
   isHowling: boolean;
   isTeleport: boolean;

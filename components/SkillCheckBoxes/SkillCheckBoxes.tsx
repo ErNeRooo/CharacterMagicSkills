@@ -34,12 +34,6 @@ export const SkillCheckBoxes = ({ character, setCharacter }: Props) => {
     }));
   };
 
-  const getValue = (field: keyof ICharacter): boolean => {
-    const value = typedKeys(character).find(() => field);
-
-    return typeof value === "boolean" ? value : false;
-  };
-
   return (
     <>
       {values.map((name) => {
@@ -58,122 +52,6 @@ export const SkillCheckBoxes = ({ character, setCharacter }: Props) => {
         );
       })}
     </>
-    /* 
-    <>
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox["isHowling"]}
-          onValueChange={() => Handler("isHowling")}
-        />
-        <Text>Krzyku</Text>
-      </View>
-
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox.isTeleport}
-          onValueChange={() =>
-            setValuesCheckBox((prev) => ({
-              ...prev,
-              isTeleport: !valuesCheckBox.isTeleport,
-            }))
-          }
-        />
-        <Text>Teleportacji</Text>
-      </View>
-
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox.isGravityManipulation}
-          onValueChange={() =>
-            setValuesCheckBox((prev) => ({
-              ...prev,
-              isGravityManipulation: !valuesCheckBox.isGravityManipulation,
-            }))
-          }
-        />
-        <Text>Grawitacji</Text>
-      </View>
-
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox.isTimeTravel}
-          onValueChange={() =>
-            setValuesCheckBox((prev) => ({
-              ...prev,
-              isTimeTravel: !valuesCheckBox.isTimeTravel,
-            }))
-          }
-        />
-        <Text>Podróży w czasie</Text>
-      </View>
-
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox.isHypnosis}
-          onValueChange={() =>
-            setValuesCheckBox((prev) => ({
-              ...prev,
-              isHypnosis: !valuesCheckBox.isHypnosis,
-            }))
-          }
-        />
-        <Text>Hipnozy</Text>
-      </View>
-
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox.isMagicDisruption}
-          onValueChange={() =>
-            setValuesCheckBox((prev) => ({
-              ...prev,
-              isMagicDisruption: !valuesCheckBox.isMagicDisruption,
-            }))
-          }
-        />
-        <Text>Zakłócania Magii</Text>
-      </View>
-
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox.isReincarnation}
-          onValueChange={() =>
-            setValuesCheckBox((prev) => ({
-              ...prev,
-              isReincarnation: !valuesCheckBox.isReincarnation,
-            }))
-          }
-        />
-        <Text>Reinkarnacji</Text>
-      </View>
-
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox.isDivination}
-          onValueChange={() =>
-            setValuesCheckBox((prev) => ({
-              ...prev,
-              isDivination: !valuesCheckBox.isDivination,
-            }))
-          }
-        />
-        <Text>Wróżbiarstwa</Text>
-      </View>
-
-      <View style={styles.row}>
-        <CheckBox
-          value={valuesCheckBox.isDivination}
-          onValueChange={() =>
-            setValuesCheckBox((prev) => ({
-              ...prev,
-              isTemporarySoulSummoning:
-                !valuesCheckBox.isTemporarySoulSummoning,
-            }))
-          }
-        />
-        <Text>Tymczasowego Przyzywania Dusz</Text>
-      </View>
-      </>
-      */
   );
 };
 
