@@ -1,4 +1,3 @@
-import { SetStateAction } from "react";
 import { View, Text } from "react-native";
 import SelectDropdown from "react-native-select-dropdown";
 import { ICharacter } from "../../pages/CharacterPage/CharacterPage";
