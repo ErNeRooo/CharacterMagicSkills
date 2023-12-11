@@ -1,21 +1,41 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Dimensions } from "react-native";
-import { useCurrentCharacter } from "../../hooks/useCurrentCharacter";
 
 const width = Dimensions.get("window").width - 40;
 const height = Dimensions.get("window").height * 0.2;
 
+export const CurrentCharacter = {
+  name: "",
+  race: "",
+  isAttack: false,
+  isHeal: false,
+  isSummon: false,
+  isInherited: false,
+  water: "",
+  fire: "",
+  wind: "",
+  earth: "",
+  heal: "",
+  detoxification: "",
+  divineStrike: "",
+  protection: "",
+  fiends: "",
+  spirits: "",
+  isHowling: false,
+  isTeleport: false,
+  isGravityManipulation: false,
+  isTimeTravel: false,
+  isHypnosis: false,
+  isMagicDisruption: false,
+  isReincarnation: false,
+  isDivination: false,
+  isTemporarySoulSummoning: false,
+};
+
 export const CharacterStatsBar = () => {
-  const { currentCharacter } = useCurrentCharacter();
   return (
     <View style={styles.bar}>
       <Text style={styles.header}>Current Character</Text>
-      <Text>{"Imię: " + currentCharacter.name}</Text>
-      <Text>{"Rasa: " + currentCharacter.race}</Text>
-      <Text>{"Magia Ataku: " + currentCharacter.isAttack}</Text>
-      <Text>{"Magia Leczenia: " + currentCharacter.isHeal}</Text>
-      <Text>{"Magia Przywoływania: " + currentCharacter.isSummon}</Text>
-      <Text>{"Magia Wrodzona: " + currentCharacter.isInherited}</Text>
     </View>
   );
 };

@@ -12,7 +12,7 @@ import { useState } from "react";
 import { Skill } from "../../components/Skill/Skill";
 import { RadioButtons } from "../../components/RadioButtons/RadioButtons";
 import { SkillCheckBoxes } from "../../components/SkillCheckBoxes/SkillCheckBoxes";
-import { useCurrentCharacter } from "../../hooks/useCurrentCharacter";
+import { CurrentCharacter } from "../../components/CharacterStatsBar/CharacterStatsBar";
 
 export const CharacterPage = ({ navigation }: Props) => {
   const [character, setCharacter] = useState({
@@ -43,13 +43,9 @@ export const CharacterPage = ({ navigation }: Props) => {
     isTemporarySoulSummoning: false,
   });
 
-  const { setCurrentCharacter } = useCurrentCharacter();
-
   const handleSubmit = () => {
     ToastAndroid.show("Character Added", ToastAndroid.SHORT);
     console.log(character);
-
-    setCurrentCharacter(character);
 
     navigation.navigate("HomePage");
   };
