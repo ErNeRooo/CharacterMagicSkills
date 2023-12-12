@@ -12,9 +12,36 @@ import { useState } from "react";
 import { Skill } from "../../components/Skill/Skill";
 import { RadioButtons } from "../../components/RadioButtons/RadioButtons";
 import { SkillCheckBoxes } from "../../components/SkillCheckBoxes/SkillCheckBoxes";
-import { CurrentCharacter } from "../../components/CharacterStatsBar/CharacterStatsBar";
+import { CharacterContext } from "../../context/CharacterContext";
 
 export const CharacterPage = ({ navigation }: Props) => {
+  const [currentCharacter, setCurrentCharacter] = useState({
+    name: "",
+    race: "",
+    isAttack: false,
+    isHeal: false,
+    isSummon: false,
+    isInherited: false,
+    water: "",
+    fire: "",
+    wind: "",
+    earth: "",
+    heal: "",
+    detoxification: "",
+    divineStrike: "",
+    protection: "",
+    fiends: "",
+    spirits: "",
+    isHowling: false,
+    isTeleport: false,
+    isGravityManipulation: false,
+    isTimeTravel: false,
+    isHypnosis: false,
+    isMagicDisruption: false,
+    isReincarnation: false,
+    isDivination: false,
+    isTemporarySoulSummoning: false,
+  });
   const [character, setCharacter] = useState({
     name: "",
     race: "",
@@ -44,142 +71,150 @@ export const CharacterPage = ({ navigation }: Props) => {
   });
 
   const handleSubmit = () => {
-    ToastAndroid.show("Character Added", ToastAndroid.SHORT);
+    //ToastAndroid.show("Character Added", ToastAndroid.SHORT);
+
+    setCurrentCharacter(character);
+    console.log(currentCharacter);
     console.log(character);
 
     navigation.navigate("HomePage");
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <View>
-        <Text>Imię twojej postaci:</Text>
-        <TextInput
-          value={character.name}
-          onChangeText={(text) =>
-            setCharacter((prev) => ({
-              ...prev,
-              name: text,
-            }))
-          }
-          placeholder="wpisz imię"
-        ></TextInput>
-      </View>
-
-      <View style={styles.magic}>
-        <Text>Magia Ataku</Text>
-        <Switch
-          onValueChange={() =>
-            setCharacter((prev) => ({
-              ...prev,
-              isAttack: !character.isAttack,
-            }))
-          }
-          value={character.isAttack}
-        />
-      </View>
-      {character.isAttack && (
+    <CharacterContext.Provider value={character}>
+      <ScrollView style={styles.container}>
         <View>
-          <Text>Szkoła: </Text>
-
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Wody"}
-          </Skill>
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Ognia"}
-          </Skill>
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Wiatru"}
-          </Skill>
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Ziemii"}
-          </Skill>
+          <Text>Imię twojej postaci:</Text>
+          <TextInput
+            value={character.name}
+            onChangeText={(text) =>
+              setCharacter((prev) => ({
+                ...prev,
+                name: text,
+              }))
+            }
+            placeholder="wpisz imię"
+          ></TextInput>
         </View>
-      )}
 
-      <View style={styles.magic}>
-        <Text>Magia Leczenia</Text>
-        <Switch
-          onValueChange={() =>
-            setCharacter((prev) => ({
-              ...prev,
-              isHeal: !character.isHeal,
-            }))
-          }
-          value={character.isHeal}
-        />
-      </View>
-      {character.isHeal && (
+        <View style={styles.magic}>
+          <Text>Magia Ataku</Text>
+          <Switch
+            onValueChange={() =>
+              setCharacter((prev) => ({
+                ...prev,
+                isAttack: !character.isAttack,
+              }))
+            }
+            value={character.isAttack}
+          />
+        </View>
+        {character.isAttack && (
+          <View>
+            <Text>Szkoła: </Text>
+
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Wody"}
+            </Skill>
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Ognia"}
+            </Skill>
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Wiatru"}
+            </Skill>
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Ziemii"}
+            </Skill>
+          </View>
+        )}
+
+        <View style={styles.magic}>
+          <Text>Magia Leczenia</Text>
+          <Switch
+            onValueChange={() =>
+              setCharacter((prev) => ({
+                ...prev,
+                isHeal: !character.isHeal,
+              }))
+            }
+            value={character.isHeal}
+          />
+        </View>
+        {character.isHeal && (
+          <View>
+            <Text>Szkoła: </Text>
+
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Leczenia"}
+            </Skill>
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Detoksykacji"}
+            </Skill>
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Boskiego uderzenia"}
+            </Skill>
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Ochrony"}
+            </Skill>
+          </View>
+        )}
+
+        <View style={styles.magic}>
+          <Text>Magia Przywoływania</Text>
+          <Switch
+            onValueChange={() =>
+              setCharacter((prev) => ({
+                ...prev,
+                isSummon: !character.isSummon,
+              }))
+            }
+            value={character.isSummon}
+          />
+        </View>
+        {character.isSummon && (
+          <View>
+            <Text>Szkoła: </Text>
+
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Duchów"}
+            </Skill>
+            <Skill character={character} setCharacterState={setCharacter}>
+              {"Diabłów"}
+            </Skill>
+          </View>
+        )}
+
+        <View style={styles.magic}>
+          <Text>Magia Wrodzona</Text>
+          <Switch
+            onValueChange={() =>
+              setCharacter((prev) => ({
+                ...prev,
+                isInherited: !character.isInherited,
+              }))
+            }
+            value={character.isInherited}
+          />
+        </View>
+        {character.isInherited && (
+          <View>
+            <SkillCheckBoxes
+              character={character}
+              setCharacter={setCharacter}
+            />
+          </View>
+        )}
+
         <View>
-          <Text>Szkoła: </Text>
-
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Leczenia"}
-          </Skill>
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Detoksykacji"}
-          </Skill>
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Boskiego uderzenia"}
-          </Skill>
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Ochrony"}
-          </Skill>
+          <Text>Rasa</Text>
+          <RadioButtons character={character} setCharacter={setCharacter}>
+            {["Człowiek", "Smok", "Elf", "Krasnolud", "Bestia", "Demon"]}
+          </RadioButtons>
         </View>
-      )}
 
-      <View style={styles.magic}>
-        <Text>Magia Przywoływania</Text>
-        <Switch
-          onValueChange={() =>
-            setCharacter((prev) => ({
-              ...prev,
-              isSummon: !character.isSummon,
-            }))
-          }
-          value={character.isSummon}
-        />
-      </View>
-      {character.isSummon && (
-        <View>
-          <Text>Szkoła: </Text>
-
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Duchów"}
-          </Skill>
-          <Skill character={character} setCharacterState={setCharacter}>
-            {"Diabłów"}
-          </Skill>
-        </View>
-      )}
-
-      <View style={styles.magic}>
-        <Text>Magia Wrodzona</Text>
-        <Switch
-          onValueChange={() =>
-            setCharacter((prev) => ({
-              ...prev,
-              isInherited: !character.isInherited,
-            }))
-          }
-          value={character.isInherited}
-        />
-      </View>
-      {character.isInherited && (
-        <View>
-          <SkillCheckBoxes character={character} setCharacter={setCharacter} />
-        </View>
-      )}
-
-      <View>
-        <Text>Rasa</Text>
-        <RadioButtons character={character} setCharacter={setCharacter}>
-          {["Człowiek", "Smok", "Elf", "Krasnolud", "Bestia", "Demon"]}
-        </RadioButtons>
-      </View>
-
-      <Button onPress={handleSubmit} title="Submit" />
-    </ScrollView>
+        <Button onPress={handleSubmit} title="Submit" />
+      </ScrollView>
+    </CharacterContext.Provider>
   );
 };
 

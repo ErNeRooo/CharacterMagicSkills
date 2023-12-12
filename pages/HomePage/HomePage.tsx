@@ -3,7 +3,6 @@ import { StyleSheet, View } from "react-native";
 import { CharacterBar } from "../../components/CharacterBar/CharacterBar";
 import { ThemeManagerBar } from "../../components/ThemeManagerBar/ThemeManagerBar";
 import { CharacterStatsBar } from "../../components/CharacterStatsBar/CharacterStatsBar";
-import { useState } from "react";
 
 export function HomePage({ navigation }: Props) {
   return (

@@ -1,41 +1,30 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import { Dimensions } from "react-native";
+import { useContext } from "react";
+import { CharacterContext } from "../../context/CharacterContext";
 
 const width = Dimensions.get("window").width - 40;
 const height = Dimensions.get("window").height * 0.2;
 
-export const CurrentCharacter = {
-  name: "",
-  race: "",
-  isAttack: false,
-  isHeal: false,
-  isSummon: false,
-  isInherited: false,
-  water: "",
-  fire: "",
-  wind: "",
-  earth: "",
-  heal: "",
-  detoxification: "",
-  divineStrike: "",
-  protection: "",
-  fiends: "",
-  spirits: "",
-  isHowling: false,
-  isTeleport: false,
-  isGravityManipulation: false,
-  isTimeTravel: false,
-  isHypnosis: false,
-  isMagicDisruption: false,
-  isReincarnation: false,
-  isDivination: false,
-  isTemporarySoulSummoning: false,
-};
-
 export const CharacterStatsBar = () => {
+  const { name, isAttack, isHeal, isSummon, isInherited } =
+    useContext(CharacterContext);
+
   return (
     <View style={styles.bar}>
       <Text style={styles.header}>Current Character</Text>
+      <Text style={styles.text}>{name}</Text>
+      <Text style={styles.text}>{isAttack}</Text>
+      <Text style={styles.text}>{isHeal}</Text>
+      <Text style={styles.text}>{isSummon}</Text>
+      <Text style={styles.text}>{isInherited}</Text>
+
+      <Button
+        title="haah"
+        onPress={() => {
+          console.log(name);
+        }}
+      />
     </View>
   );
 };
@@ -55,4 +44,5 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   header: { fontSize: 20, color: "white" },
+  text: { color: "white", fontSize: 10 },
 });
