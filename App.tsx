@@ -2,6 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { CharacterPage } from "./pages/CharacterPage/CharacterPage";
+import { useContext } from "react";
+import { CharacterContext } from "./context/CharacterContext";
 
 const Theme = {
   dark: true,
@@ -16,14 +18,17 @@ const Theme = {
 };
 
 const Stack = createNativeStackNavigator();
+const character = useContext(CharacterContext);
 
 export default function App() {
   return (
-    <NavigationContainer theme={Theme}>
-      <Stack.Navigator>
-        <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="CharacterPage" component={CharacterPage} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <CharacterContext.Provider value={character}>
+      <NavigationContainer theme={Theme}>
+        <Stack.Navigator>
+          <Stack.Screen name="HomePage" component={HomePage} />
+          <Stack.Screen name="CharacterPage" component={CharacterPage} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CharacterContext.Provider>
   );
 }

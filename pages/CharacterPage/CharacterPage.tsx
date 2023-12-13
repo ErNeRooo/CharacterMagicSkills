@@ -74,7 +74,7 @@ export const CharacterPage = ({ navigation }: Props) => {
   });
 
   const handleSubmit = () => {
-    ToastAndroid.show("Character Added", ToastAndroid.SHORT);
+    //ToastAndroid.show("Character Added", ToastAndroid.SHORT);
 
     setCurrentCharacter(character);
     console.log(character);
