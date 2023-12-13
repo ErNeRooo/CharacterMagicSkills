@@ -28,24 +28,30 @@ export const Skill = ({ children, character, setCharacterState }: Props) => {
   return (
     <>
       <View style={styles.bar}>
-        <Text style={styles.h2}>{children}</Text>
-        <SelectDropdown
-          data={[
-            "Żaden",
-            "Początkujący",
-            "Średniozaawansowany",
-            "Zaawansowany",
-            "Święty",
-            "Królewski",
-            "Cesarski",
-            "Boski",
-          ]}
-          onSelect={(item) => {
-            handler(item);
-          }}
-          defaultValue={character[skillName as keyof ICharacter]}
-          buttonStyle={styles.buttonDropdown}
-        />
+        <View style={styles.subBar}>
+          <Text style={styles.h2}>{children}</Text>
+          <SelectDropdown
+            data={[
+              "Żaden",
+              "Początkujący",
+              "Średniozaawansowany",
+              "Zaawansowany",
+              "Święty",
+              "Królewski",
+              "Cesarski",
+              "Boski",
+            ]}
+            onSelect={(item) => {
+              handler(item);
+            }}
+            defaultButtonText={"Wybierz"}
+            buttonStyle={styles.buttonDropdown}
+            buttonTextStyle={styles.textDropdown}
+            dropdownStyle={styles.viewDropdown}
+            rowStyle={styles.rowDropdown}
+            rowTextStyle={styles.rowTextDropdown}
+          />
+        </View>
       </View>
     </>
   );
@@ -64,8 +70,31 @@ const styles = StyleSheet.create({
 
     marginBottom: 10,
   },
+  subBar: {
+    marginHorizontal: 20,
+    marginVertical: 10,
+  },
   text: { color: "white" },
-  h2: { color: "white", fontSize: 20 },
-  h3: { color: "white", fontSize: 15 },
-  buttonDropdown: { marginBottom: 20, borderRadius: 20, height: 40 },
+  h2: { color: "white", fontSize: 20, textAlign: "center" },
+  buttonDropdown: {
+    borderRadius: 20,
+    width: "auto",
+    backgroundColor: "#0f172a",
+    marginTop: 10,
+  },
+  textDropdown: {
+    color: "#a8a29e",
+  },
+  viewDropdown: {
+    margin: 0,
+    backgroundColor: "#0f172a",
+    borderRadius: 20,
+  },
+  rowDropdown: {
+    borderColor: "#475569",
+    borderStyle: "solid",
+  },
+  rowTextDropdown: {
+    color: "#a8a29e",
+  },
 });
