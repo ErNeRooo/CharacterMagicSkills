@@ -116,6 +116,8 @@ export const CharacterPage = ({ navigation }: Props) => {
                 }))
               }
               value={character.isAttack}
+              trackColor={{ true: "#3b82f6" }}
+              thumbColor={"#1d4ed8"}
             />
           </View>
           {character.isAttack && (
@@ -147,6 +149,8 @@ export const CharacterPage = ({ navigation }: Props) => {
                 }))
               }
               value={character.isHeal}
+              trackColor={{ true: "#3b82f6" }}
+              thumbColor={"#1d4ed8"}
             />
           </View>
           {character.isHeal && (
@@ -178,6 +182,8 @@ export const CharacterPage = ({ navigation }: Props) => {
                 }))
               }
               value={character.isSummon}
+              trackColor={{ true: "#3b82f6" }}
+              thumbColor={"#1d4ed8"}
             />
           </View>
           {character.isSummon && (
@@ -203,6 +209,8 @@ export const CharacterPage = ({ navigation }: Props) => {
                 }))
               }
               value={character.isInherited}
+              trackColor={{ true: "#3b82f6" }}
+              thumbColor={"#1d4ed8"}
             />
           </View>
           {character.isInherited && (

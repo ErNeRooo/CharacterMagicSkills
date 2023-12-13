@@ -46,6 +46,7 @@ export const SkillCheckBoxes = ({ character, setCharacter }: Props) => {
             <CheckBox
               value={!!character[field as keyof ICharacter]}
               onValueChange={() => Handler(field)}
+              color={"#1d4ed8"}
             />
             <Text style={styles.text}>{" " + name}</Text>
           </View>

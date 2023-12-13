@@ -19,6 +19,7 @@ export const RadioButtons = ({ children, setCharacter, character }: Props) => {
           value={item}
           status={character.race === item ? "checked" : "unchecked"}
           onPress={() => Handler(item)}
+          color={"#1d4ed8"}
         />
         <Text style={styles.text}>{item}</Text>
       </View>
