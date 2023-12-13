@@ -5,7 +5,7 @@ import {
   TextInput,
   Switch,
   ScrollView,
-  Button,
+  TouchableOpacity,
   ToastAndroid,
   Dimensions,
 } from "react-native";
@@ -87,22 +87,27 @@ export const CharacterPage = ({ navigation }: Props) => {
   return (
     <CharacterContext.Provider value={character}>
       <ScrollView style={styles.container}>
-        <View style={styles.inputBar}>
-          <Text style={styles.h1}>Imię twojej postaci:</Text>
-          <TextInput
-            value={character.name}
-            onChangeText={(text) =>
-              setCharacter((prev) => ({
-                ...prev,
-                name: text,
-              }))
-            }
-            style={styles.h2}
-            placeholder="wpisz imię"
-          ></TextInput>
+        <View style={styles.bar}>
+          <View style={styles.InputBar}>
+            <Text style={styles.h1}>Imię twojej postaci:</Text>
+            <TextInput
+              value={character.name}
+              onChangeText={(text) =>
+                setCharacter((prev) => ({
+                  ...prev,
+                  name: text,
+                }))
+              }
+              style={styles.TextInput}
+              placeholderTextColor={"#a8a29e"}
+              selectionColor={"#2563eb"}
+              placeholder={"Podaj Imię"}
+              maxLength={45}
+            ></TextInput>
+          </View>
         </View>
 
-        <View style={styles.inputBar}>
+        <View style={styles.bar}>
           <View style={styles.row}>
             <Text style={styles.h1}>Magia Ataku</Text>
             <Switch
@@ -133,7 +138,7 @@ export const CharacterPage = ({ navigation }: Props) => {
           )}
         </View>
 
-        <View style={styles.inputBar}>
+        <View style={styles.bar}>
           <View style={styles.row}>
             <Text style={styles.h1}>Magia Leczenia</Text>
             <Switch
@@ -164,7 +169,7 @@ export const CharacterPage = ({ navigation }: Props) => {
           )}
         </View>
 
-        <View style={styles.inputBar}>
+        <View style={styles.bar}>
           <View style={styles.row}>
             <Text style={styles.h1}>Magia Przywoływania</Text>
             <Switch
@@ -189,7 +194,7 @@ export const CharacterPage = ({ navigation }: Props) => {
           )}
         </View>
 
-        <View style={styles.inputBar}>
+        <View style={styles.bar}>
           <View style={styles.row}>
             <Text style={styles.h1}>Magia Wrodzona</Text>
             <Switch
@@ -212,14 +217,18 @@ export const CharacterPage = ({ navigation }: Props) => {
           )}
         </View>
 
-        <View style={styles.inputBar}>
-          <Text style={styles.h1}>Rasa</Text>
-          <RadioButtons character={character} setCharacter={setCharacter}>
-            {["Człowiek", "Smok", "Elf", "Krasnolud", "Bestia", "Demon"]}
-          </RadioButtons>
+        <View style={styles.bar}>
+          <View style={styles.RadioBar}>
+            <Text style={styles.h1}>Rasa</Text>
+            <RadioButtons character={character} setCharacter={setCharacter}>
+              {["Człowiek", "Smok", "Elf", "Krasnolud", "Bestia", "Demon"]}
+            </RadioButtons>
+          </View>
         </View>
 
-        <Button onPress={handleSubmit} title="Submit" />
+        <TouchableOpacity onPress={handleSubmit} style={styles.btn}>
+          <Text style={styles.h1}>Submit</Text>
+        </TouchableOpacity>
       </ScrollView>
     </CharacterContext.Provider>
   );
@@ -270,16 +279,44 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  inputBar: {
+  bar: {
     width: width - 40,
 
     backgroundColor: "#1e293b",
     marginHorizontal: 20,
-    marginVertical: 20,
-    borderRadius: 10,
-    padding: 10,
+    marginVertical: 10,
+    borderRadius: 25,
+    paddingHorizontal: 15,
+  },
+  InputBar: {
+    marginVertical: 10,
+  },
+  TextInput: {
+    color: "white",
+    paddingLeft: 10,
+    height: 30,
+    backgroundColor: "#0f172a",
+    borderRadius: 15,
+    marginTop: 10,
+  },
+  RadioBar: {
+    marginVertical: 10,
   },
   text: { color: "white" },
-  h1: { color: "white", fontSize: 25 },
-  h2: { color: "white", fontSize: 20 },
+  h1: { color: "white", fontSize: 20 },
+  h2: { color: "white", fontSize: 15 },
+  btn: {
+    width: width - 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#2563eb",
+    marginHorizontal: 20,
+    marginTop: 10,
+    paddingHorizontal: 15,
+
+    flexDirection: "row",
+    alignItems: "center",
+
+    justifyContent: "space-around",
+  },
 });
