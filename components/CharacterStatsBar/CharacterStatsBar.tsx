@@ -7,25 +7,28 @@ const width = Dimensions.get("window").width - 40;
 const height = Dimensions.get("window").height * 0.2;
 
 export const CharacterStatsBar = () => {
-  const { name, isAttack, isHeal, isSummon, isInherited } =
-    useContext(CharacterContext);
+  const character = useContext(CharacterContext);
 
   return (
-    <View style={styles.bar}>
-      <Text style={styles.header}>Current Character</Text>
-      <Text style={styles.text}>{name}</Text>
-      <Text style={styles.text}>{isAttack}</Text>
-      <Text style={styles.text}>{isHeal}</Text>
-      <Text style={styles.text}>{isSummon}</Text>
-      <Text style={styles.text}>{isInherited}</Text>
+    <CharacterContext.Provider value={character}>
+      <View style={styles.bar}>
+        <Text style={styles.header}>Current Character</Text>
+        <Text style={styles.text}>{"Name: " + character.name}</Text>
+        <Text style={styles.text}>{"isAttack: " + character.isAttack}</Text>
+        <Text style={styles.text}>{"isHeal: " + character.isHeal}</Text>
+        <Text style={styles.text}>{"isSummon: " + character.isSummon}</Text>
+        <Text style={styles.text}>
+          {"isInherited: " + character.isInherited}
+        </Text>
 
-      <Button
-        title="haah"
-        onPress={() => {
-          console.log(name);
-        }}
-      />
-    </View>
+        <Button
+          title="haah"
+          onPress={() => {
+            console.log(name);
+          }}
+        />
+      </View>
+    </CharacterContext.Provider>
   );
 };
 

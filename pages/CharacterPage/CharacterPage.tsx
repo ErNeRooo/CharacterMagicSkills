@@ -78,7 +78,6 @@ export const CharacterPage = ({ navigation }: Props) => {
     //ToastAndroid.show("Character Added", ToastAndroid.SHORT);
 
     setCurrentCharacter(character);
-    console.log(currentCharacter);
     console.log(character);
 
     navigation.navigate("HomePage");
