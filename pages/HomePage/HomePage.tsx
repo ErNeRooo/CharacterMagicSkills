@@ -1,13 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import { CharacterBar } from "../../components/CharacterBar/CharacterBar";
-import { CharacterStatsBar } from "../../components/CharacterStatsBar/CharacterStatsBar";
 
 export function HomePage({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <CharacterBar navigation={navigation}></CharacterBar>
-      <CharacterStatsBar></CharacterStatsBar>
       <StatusBar style="auto" />
     </View>
   );

@@ -10,7 +10,7 @@ export const CharacterBar = ({ navigation }: Props) => {
       style={styles.bar}
       onPress={() => navigation.navigate("CharacterPage")}
     >
-      <Text style={styles.header}>Add Character</Text>
+      <Text style={styles.header}>Dodaj Postać</Text>
     </TouchableOpacity>
   );
 };
