@@ -11,21 +11,23 @@ export const CharacterStatsBar = () => {
     useContext(CharacterContext);
 
   return (
-    <View style={styles.bar}>
-      <Text style={styles.header}>Current Character</Text>
-      <Text style={styles.text}>{name}</Text>
-      <Text style={styles.text}>{isAttack}</Text>
-      <Text style={styles.text}>{isHeal}</Text>
-      <Text style={styles.text}>{isSummon}</Text>
-      <Text style={styles.text}>{isInherited}</Text>
+    <CharacterContext.Provider>
+      <View style={styles.bar}>
+        <Text style={styles.header}>Current Character</Text>
+        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.text}>{isAttack}</Text>
+        <Text style={styles.text}>{isHeal}</Text>
+        <Text style={styles.text}>{isSummon}</Text>
+        <Text style={styles.text}>{isInherited}</Text>
 
-      <Button
-        title="haah"
-        onPress={() => {
-          console.log(name);
-        }}
-      />
-    </View>
+        <Button
+          title="haah"
+          onPress={() => {
+            console.log(name);
+          }}
+        />
+      </View>
+    </CharacterContext.Provider>
   );
 };
 

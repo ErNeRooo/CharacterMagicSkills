@@ -20,7 +20,7 @@ export const RadioButtons = ({ children, setCharacter, character }: Props) => {
           status={character.race === item ? "checked" : "unchecked"}
           onPress={() => Handler(item)}
         />
-        <Text>{item}</Text>
+        <Text style={styles.text}>{item}</Text>
       </View>
     );
   });
@@ -28,6 +28,7 @@ export const RadioButtons = ({ children, setCharacter, character }: Props) => {
 
 const styles = StyleSheet.create({
   row: { flexDirection: "row", alignItems: "center" },
+  text: { color: "white" },
 });
 type Props = {
   character: ICharacter;

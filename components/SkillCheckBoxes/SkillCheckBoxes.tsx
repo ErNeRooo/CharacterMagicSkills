@@ -47,7 +47,7 @@ export const SkillCheckBoxes = ({ character, setCharacter }: Props) => {
               value={!!character[field as keyof ICharacter]}
               onValueChange={() => Handler(field)}
             />
-            <Text>{name}</Text>
+            <Text style={styles.text}>{" " + name}</Text>
           </View>
         );
       })}
@@ -56,7 +56,8 @@ export const SkillCheckBoxes = ({ character, setCharacter }: Props) => {
 };
 
 const styles = StyleSheet.create({
-  row: { flexDirection: "row", alignItems: "center" },
+  row: { flexDirection: "row", alignItems: "center", marginBottom: 10 },
+  text: { color: "white" },
 });
 
 function typedKeys<T extends Object>(o: T): (keyof T)[] {
