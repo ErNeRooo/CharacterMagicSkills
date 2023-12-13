@@ -14,7 +14,6 @@ import { Skill } from "../../components/Skill/Skill";
 import { RadioButtons } from "../../components/RadioButtons/RadioButtons";
 import { SkillCheckBoxes } from "../../components/SkillCheckBoxes/SkillCheckBoxes";
 import { CharacterContext } from "../../context/CharacterContext";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const width = Dimensions.get("window").width;
 
@@ -75,7 +74,7 @@ export const CharacterPage = ({ navigation }: Props) => {
   });
 
   const handleSubmit = () => {
-    //ToastAndroid.show("Character Added", ToastAndroid.SHORT);
+    ToastAndroid.show("Character Added", ToastAndroid.SHORT);
 
     setCurrentCharacter(character);
     console.log(character);

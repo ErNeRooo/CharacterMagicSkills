@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     flex: 1,
     flexWrap: "wrap",
-    //backgroundColor: "#272D2D",
     alignItems: "flex-start",
     justifyContent: "flex-start",
     flexDirection: "column",
