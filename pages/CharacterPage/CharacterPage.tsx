@@ -18,33 +18,6 @@ import { CharacterContext } from "../../context/CharacterContext";
 const width = Dimensions.get("window").width;
 
 export const CharacterPage = ({ navigation }: Props) => {
-  const [currentCharacter, setCurrentCharacter] = useState({
-    name: "",
-    race: "",
-    isAttack: false,
-    isHeal: false,
-    isSummon: false,
-    isInherited: false,
-    water: "",
-    fire: "",
-    wind: "",
-    earth: "",
-    heal: "",
-    detoxification: "",
-    divineStrike: "",
-    protection: "",
-    fiends: "",
-    spirits: "",
-    isHowling: false,
-    isTeleport: false,
-    isGravityManipulation: false,
-    isTimeTravel: false,
-    isHypnosis: false,
-    isMagicDisruption: false,
-    isReincarnation: false,
-    isDivination: false,
-    isTemporarySoulSummoning: false,
-  });
   const [character, setCharacter] = useState({
     name: "",
     race: "",
@@ -76,7 +49,6 @@ export const CharacterPage = ({ navigation }: Props) => {
   const handleSubmit = () => {
     ToastAndroid.show("Character Added", ToastAndroid.SHORT);
 
-    setCurrentCharacter(character);
     console.log(character);
 
     navigation.navigate("HomePage");
